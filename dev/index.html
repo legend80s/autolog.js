@@ -3,52 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- iconfont -->
   <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4507845_4ys40xqhy9u.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma@1.0.3/css/bulma.min.css">
   <style>
-    .btn{
-        display: inline-block;
-        line-height: 1;
-        white-space: nowrap;
-        cursor: pointer;
-        appearance: none;
-        text-align: center;
-        box-sizing: border-box;
-        outline: none;
-        margin: 0;
-        transition: .1s;
-        font-weight: 500;
-        user-select: none;
-        padding: 12px 20px;
-        font-size: 14px;
-        border-radius: 4px;
-        color: #409eff;
-        background: #ecf5ff;
-        border: 1px solid #b3d8ff;
-    }
-    .btn:hover{
-        background: #409eff;
-        border-color: #409eff;
-        color: #fff;
-    }
-    .demo{
-        display: flex;
-        justify-content: center;
-        margin: 200px;
-    }
-    .demo .btn{
-        margin: 0 20px;
+    .container {
+      margin-top: 50vh;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-<div class="demo">
-  <button class="btn log" data-type="warn">warn</button>
-  <button class="btn log" data-type="error">error</button>
-  <button class="btn log" data-type="info">info</button>
-  <button class="btn log" data-type="success">success</button>
-  <button class="btn log" data-type="icon-warning">iconfont</button>
-  <button class="btn log" data-type="customSvg">customSvg</button>
-  <button class="btn log handleClose" data-type="handleClose">handleClose</button>
+<div class="container">
+  <!-- use builtin icon -->
+  <button class="button is-info" data-type="info">info</button>
+  <button class="button is-success" data-type="success">success</button>
+  <button class="button is-warning" data-type="warn">warn</button>
+  <button class="button is-warning is-outlined" data-type="warning">warning</button>
+  <button class="button is-danger" data-type="error">error</button>
+  <button class="button" data-type="loading">loading</button>
+
+  <!-- use icon font -->
+  <button class="button log" data-type="icon-warning">iconfont</button>
+  <!-- use custom svg -->
+  <button class="button log" data-type="customSvg">customSvg</button>
+  <!-- manual close -->
+  <button class="button log handleClose" data-type="handleClose">handleClose</button>
 </div>
 </body>
 </html>
