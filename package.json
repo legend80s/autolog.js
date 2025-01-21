@@ -1,26 +1,24 @@
 {
-  "name": "autolog.js",
+  "name": "antd-message-mini",
   "version": "2.2.1",
   "description": "轻量化的小弹窗",
   "main": "index.js",
   "types": "./index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LarryZhu-dev/autolog.js.git"
+    "url": "https://github.com/legend80s/antd-message-mini.git"
   },
   "files": [
     "es",
-    "autolog.js",
-    "autolog.min.js",
-    "autolog.svg",
+    "antd-message-mini",
     "index.js",
     "index.d.ts",
     "LICENSE",
     "README.md"
   ],
-  "homepage": "https://larryzhu-dev.github.io/autoLarryPages/autolog.js/",
+  "homepage": "https://legend80s.github.io/legend80s/antd-message-mini/",
   "scripts": {
-    "cleanCSS":"node ./src/minify.js",
+    "cleanCSS": "node ./src/minify.js",
     "clean": "shx rm -rf ./es",
     "lint": "eslint src/**/*.ts",
     "dev": "npm run cleanCSS && webpack serve -c ./build/webpack.dev.conf.js",
@@ -32,7 +30,7 @@
   },
   "keywords": [
     "toast",
-    "autolog.js"
+    "antd-message-mini"
   ],
   "devDependencies": {
     "@babel/core": "^7.21.4",

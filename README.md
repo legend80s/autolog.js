@@ -1,41 +1,60 @@
-<p align="center">
-  <a target="_blank" href="#">
-  <img alt="autolog" src="https://raw.githubusercontent.com/Larryzhu-dev/autolog.js/main//autolog.svg" width="300">
-  </a>
-</p>
+> Forked from [autolog.js](https://github.com/Auto-Plugin/autolog.js/blob/main/README.md)
 
-<p align="center">
-  <h2 align="center">autolog.js</h2>
-</p>
+# antd-message-mini
 
-一个轻量化小弹窗，无需任何依赖，一行代码即可弹出，并自动管理状态。
+> Lightweight pixel-level imitation version of Ant Design (antd v5) message component.
+>
+> `message.info/success/warning/error/loading`
 
-安装
+[demo](https://unpkg.com/antd-message-mini@1.0.0/dist/index.html)
 
-```shell
-npm i autolog.js
+## Features
+
+- Pixel-level imitation of antd message component.
+- Framework-agnostic, running everywhere: Not rely on heavy frameworks such as antd, react, vue, etc.
+- Lightweight.
+- No dependencies.
+
+## Installation
+
+```bash
+npm install antd-message-mini
 ```
 
-使用
+### install from CDN
+
+### jsdelivr
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/antd-message-mini@1.0.0/dist/antd-message-mini.min.js"></script>
+```
+
+### unpkg
+
+```html
+<script src="https://unpkg.com/antd-message-mini@1.0.0/dist/antd-message-mini.min.js"></script>
+
+<script>
+  const message = window.antdMessageMini;
+
+  message.info('This is a info message');
+</script>
+```
+
+## Usage
 
 ```js
-import autolog from "autolog.js";
+import { message } from 'antd-message-mini';
 
-autolog.log("Hello World", "success", 2500);
-// 其中 "success" 和 2500 都是可选项
+message.info('This is a info message');
+message.success('This is a success message');
+message.warning('This is a warning message');
+message.error('This is a error message');
+message.loading('This is a loading message');
 ```
 
-自定义 icon
+## API
 
-支持 svg 字符串，iconfont 类名
+## License
 
-```js
-import alog from "autolog.js";
-const autolog = alog.create({
- svgIcons: {
-     customSvg: `<svg>...</svg>`,
-     iconfont: "icon-xxx"
- }
-});
-```
-
+MIT
