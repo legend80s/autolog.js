@@ -1,6 +1,6 @@
 import { message } from '../src/index';
 
-// message.config({ debug: true, duration: 5000 });
+message.config({ debug: true, duration: 500e3 });
 
 // message.info('This is a info message');
 // message.info({ content: 'This is a info message', duration: 1000 });
