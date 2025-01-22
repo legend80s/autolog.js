@@ -1,34 +1,34 @@
 > Forked from [autolog.js](https://github.com/Auto-Plugin/autolog.js/blob/main/README.md)
 
-# antd-message-mini
+<h1 align="center">🐜 antd-message-mini 💬</h1>
 
-> Lightweight pixel-level imitation version of Ant Design (antd v5) message component.
->
 > `message.info/success/warning/error/loading`
+>
+> Lightweight message toast. A pixel-level imitation version of Ant Design (antd v5) message static methods.
 
 [demo](https://unpkg.com/antd-message-mini@1.0.0/dist/index.html)
 
-## Features
+## 🌟 Features
 
-- Pixel-level imitation of antd message component.
-- Framework-agnostic, running everywhere: no rely on heavy frameworks such as antd, react, vue, etc.
-- Lightweight: no dependencies.
+- 🎈 **Lightweight**: no dependencies. 1.7kb (minified) ![bundlephobia](https://badgen.net/bundlephobia/min/antd-message-mini).
+- 🐪 **Framework-agnostic, run in everywhere**: no rely on heavy frameworks such as antd, react, vue, etc.
+- 🎎 **Pixel-level imitation** of antd `message[level](...)`.
 
-## Installation
+## 🏗️ Installation
 
 ```bash
-npm install antd-message-mini
+npm install antd-message-mini --save
 ```
 
 ### install from CDN
 
-### jsdelivr
+### 🚚 jsdelivr
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/antd-message-mini@1.0.0/dist/antd-message-mini.min.js"></script>
 ```
 
-### unpkg
+### 📦 unpkg
 
 ```html
 <script src="https://unpkg.com/antd-message-mini@1.0.0/dist/antd-message-mini.min.js"></script>
@@ -40,7 +40,7 @@ npm install antd-message-mini
 </script>
 ```
 
-## Usage
+## 🍞 Usage
 
 ```js
 import { message } from 'antd-message-mini';
@@ -51,7 +51,8 @@ message.warning('This is a warning message');
 message.error('This is a error message');
 message.loading('This is a loading message');
 ```
-## API
+
+## ⚙️ API
 
 Common props ref：[Common props](/docs/react/common-props)
 
@@ -132,6 +133,18 @@ message.config({
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | string \| number | 8 |  |
 
-## License
+## 🤝 Contributing
+
+```sh
+pnpm i
+
+pnpm run dev
+```
+
+Open `http://localhost:9000` to see the demo.
+
+And edit `src/index.ts` and `dev/index.ts` to see the changes in real-time.
+
+## 📜 License
 
 MIT
