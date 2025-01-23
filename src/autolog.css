@@ -88,6 +88,13 @@
   color: var(--ant-color-error);
 }
 
+#autolog > .autolog-loading.colorful {
+  background-color: #e6f7ff;
+}
+#autolog > .autolog-loading > *:first-child {
+  color: var(--ant-color-info);
+}
+
 
 #autolog > .autolog- {
   background-color: #fafafa;
@@ -118,6 +125,19 @@
   width: 1em;
   height: 1em;
 }
+
 #autolog [data-icon="close"] {
   cursor: pointer;
+}
+:is(#autolog > .autolog-info.colorful, #autolog > .autolog-loading.colorful) [data-icon="close"] {
+  color: var(--ant-color-info);
+}
+#autolog > .autolog-success.colorful [data-icon="close"] {
+  color: var(--ant-color-success);
+}
+:is(#autolog > .autolog-warn.colorful, #autolog > .autolog-warning.colorful) [data-icon="close"] {
+  color: var(--ant-color-warning);
+}
+#autolog > .autolog-error.colorful [data-icon="close"] {
+  color: var(--ant-color-error);
 }
