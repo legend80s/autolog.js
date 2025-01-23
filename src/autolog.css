@@ -1,5 +1,14 @@
 #autolog {
   --icon-size: 1rem;
+  --ant-font-size: 14px;
+  --ant-box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --ant-border-radius-lg: 8px;
+  --ant-line-height: 1.5714285714285714;
+  --ant-color-info: #1677ff;
+  --ant-color-success: #52C41A;
+  --ant-color-warning: #FAAD14;
+  --ant-color-error: #FF4D4F;
+  --ant-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   display: flex;
   flex-direction: column;
@@ -12,7 +21,6 @@
   left: 0;
   top: 0;
   z-index: 9999999;
-  cursor: pointer;
   transition: 0.2s;
 }
 
@@ -21,20 +29,22 @@
   width: max-content;
   animation: fadein 0.4s;
   animation-delay: 0s;
-  border-radius: 6px;
-  padding: 10px 20px;
-  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.1);
-  margin: 4px;
+  border-radius: var(--ant-border-radius-lg);
+  padding: 9px 12px;
+  box-shadow: var(--ant-box-shadow);
+  margin-top: 16px;
   transition: 0.2s;
   z-index: 9999999;
-  font-size: 14px;
+  font-size: var(--ant-font-size);
+  line-height: var(--ant-line-height);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem; 
   height: max-content;
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: #FFFFFF;
+  font-family: var(--ant-font-family);
 }
 
 #autolog > span > span {
@@ -50,25 +60,34 @@
   margin: 0;
 }
 
-#autolog > .autolog-warn {
-  background-color: #fffaec;
-  color: #e29505;
+#autolog > .autolog-info > *:first-child {
+  color: var(--ant-color-info);
 }
-
-#autolog > .autolog-error {
-  background-color: #fde7e7;
-  color: #d93025;
-}
-
-#autolog > .autolog-info {
+#autolog > .autolog-info.colorful {
   background-color: #e6f7ff;
-  color: #0e6eb8;
 }
 
-#autolog > .autolog-success {
+#autolog > .autolog-success.colorful {
   background-color: #e9f7e7;
-  color: #1a9e2c;
 }
+#autolog > .autolog-success > *:first-child {
+  color: var(--ant-color-success);
+}
+
+#autolog > .autolog-warn.colorful, #autolog > .autolog-warning.colorful {
+  background-color: #fffaec;
+}
+#autolog > .autolog-warn > *:first-child, #autolog > .autolog-warning > *:first-child {
+  color: var(--ant-color-warning);
+}
+
+#autolog > .autolog-error.colorful {
+  background-color: #fde7e7;
+}
+#autolog > .autolog-error > *:first-child {
+  color: var(--ant-color-error);
+}
+
 
 #autolog > .autolog- {
   background-color: #fafafa;
@@ -98,4 +117,7 @@
   font-size: var(--icon-size);
   width: 1em;
   height: 1em;
+}
+#autolog [data-icon="close"] {
+  cursor: pointer;
 }

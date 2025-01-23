@@ -134,35 +134,43 @@
   <body>
     <div class="container">
       <!-- use builtin icon -->
-      <button class="button is-info bg-gray-800" data-type="info">info</button>
-      <button class="button is-success bg-teal-500" data-type="success">
+      <button class="button is-info bg-gray-800" data-level="info">info</button>
+      <button class="button is-success bg-teal-500" data-level="success">
         success
       </button>
-      <button class="button is-warning bg-yellow-500" data-type="warn">
+      <button class="button is-warning bg-yellow-500" data-level="warn">
         warn
       </button>
       <button
         class="button is-warning bg-yellow-500 is-outlined"
-        data-type="warning"
+        data-level="warning"
       >
         warning
       </button>
-      <button class="button is-danger bg-red-500" data-type="error">
+      <button class="button is-danger bg-red-500" data-level="error">
         error
       </button>
-      <button class="button bg-gray-500" data-type="loading">loading</button>
+      <button class="button bg-gray-500" data-level="loading">loading</button>
 
       <!-- use icon font -->
-      <button class="button bg-gray-500" data-type="icon-warning">
-        iconfont
+      <button
+        class="button bg-gray-500"
+        data-level="error"
+        data-iconfont="icon-error"
+      >
+        iconfont icon-error
       </button>
       <!-- use custom svg -->
-      <button class="button bg-gray-500" data-type="customSvg">
-        customSvg
+      <button class="button bg-gray-500" data-level="customSvg">
+        Custom Icon
       </button>
       <!-- manual close -->
-      <button class="button bg-gray-500 handleClose" data-type="handleClose">
-        handleClose
+      <button class="button bg-gray-500 handleClose" data-level="handleClose">
+        Close Manually
+      </button>
+
+      <button class="button bg-gray-500" data-level="info" data-icon="">
+        plain message
       </button>
     </div>
   </body>

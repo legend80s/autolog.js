@@ -19,7 +19,7 @@ function minify() {
 
 function watch(files, cb) {
   fs.watch(files, () => {
-    console.log('File changed re minify:', files);
+    console.log('File changed re-minify:', files);
     cb();
   });
 }
