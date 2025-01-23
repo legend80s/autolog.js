@@ -8,13 +8,13 @@
 
 [demo](https://unpkg.com/antd-message-mini@1.0.0/dist/index.html)
 
-## 🌟 Features
+## Features
 
 - 🎈 **Lightweight**: no dependencies. 1.7kb (minified) ![bundlephobia](https://badgen.net/bundlephobia/min/antd-message-mini).
 - 🐪 **Framework-agnostic, run in everywhere**: no rely on heavy frameworks such as antd, react, vue, etc.
 - 🎎 **Pixel-level imitation** of antd `message[level](...)`.
 
-## 🏗️ Installation
+## Installation
 
 ```bash
 npm install antd-message-mini --save

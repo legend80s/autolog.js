@@ -1,34 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title><%= htmlWebpackPlugin.options.title %></title>
-  <!-- iconfont -->
-  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4507845_4ys40xqhy9u.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulma@1.0.3/css/bulma.min.css">
-  <style>
-    .container {
-      margin-top: 50vh;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <!-- use builtin icon -->
-  <button class="button is-info" data-type="info">info</button>
-  <button class="button is-success" data-type="success">success</button>
-  <button class="button is-warning" data-type="warn">warn</button>
-  <button class="button is-warning is-outlined" data-type="warning">warning</button>
-  <button class="button is-danger" data-type="error">error</button>
-  <button class="button" data-type="loading">loading</button>
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- iconfont -->
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/c/font_4507845_4ys40xqhy9u.css"
+    />
+    <style>
+      .container {
+        margin-top: 50vh;
+        text-align: center;
+      }
 
-  <!-- use icon font -->
-  <button class="button log" data-type="icon-warning">iconfont</button>
-  <!-- use custom svg -->
-  <button class="button log" data-type="customSvg">customSvg</button>
-  <!-- manual close -->
-  <button class="button log handleClose" data-type="handleClose">handleClose</button>
-</div>
-</body>
+      button {
+        cursor: pointer;
+      }
+
+      button {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        border: 1px solid transparent;
+        background-color: #1f2937;
+        color: #ffffff;
+        transition-property: background-color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+
+      button:hover {
+        background-color: #111827;
+      }
+
+      button:focus {
+        outline: 2px solid transparent;
+        background-color: #111827;
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      button.bg-gray-500 {
+        background-color: #6b7280;
+        color: #ffffff;
+      }
+
+      button.bg-gray-500:hover {
+        background-color: #4b5563;
+      }
+
+      button.bg-gray-500:focus {
+        background-color: #4b5563;
+      }
+
+      button.bg-teal-500 {
+        background-color: #14b8a6;
+        color: #ffffff;
+      }
+
+      button.bg-teal-500:hover {
+        background-color: #0d9488;
+      }
+
+      button.bg-teal-500:focus {
+        background-color: #0d9488;
+      }
+
+      button.bg-blue-600 {
+        background-color: #2563eb;
+        color: #ffffff;
+      }
+
+      button.bg-blue-600:hover {
+        background-color: #1d4ed8;
+      }
+
+      button.bg-blue-600:focus {
+        background-color: #1d4ed8;
+      }
+
+      button.bg-red-500 {
+        background-color: #ef4444;
+        color: #ffffff;
+      }
+
+      button.bg-red-500:hover {
+        background-color: #dc2626;
+      }
+
+      button.bg-red-500:focus {
+        background-color: #dc2626;
+      }
+
+      button.bg-yellow-500 {
+        background-color: #eab308;
+        color: #ffffff;
+      }
+
+      button.bg-yellow-500:hover {
+        background-color: #ca8a04;
+      }
+
+      button.bg-yellow-500:focus {
+        background-color: #ca8a04;
+      }
+
+      button.bg-white {
+        background-color: #ffffff;
+        color: #1f2937;
+      }
+
+      button.bg-white:hover {
+        background-color: #e5e7eb;
+      }
+
+      button.bg-white:focus {
+        background-color: #e5e7eb;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- use builtin icon -->
+      <button class="button is-info bg-gray-800" data-type="info">info</button>
+      <button class="button is-success bg-teal-500" data-type="success">
+        success
+      </button>
+      <button class="button is-warning bg-yellow-500" data-type="warn">
+        warn
+      </button>
+      <button
+        class="button is-warning bg-yellow-500 is-outlined"
+        data-type="warning"
+      >
+        warning
+      </button>
+      <button class="button is-danger bg-red-500" data-type="error">
+        error
+      </button>
+      <button class="button bg-gray-500" data-type="loading">loading</button>
+
+      <!-- use icon font -->
+      <button class="button bg-gray-500" data-type="icon-warning">
+        iconfont
+      </button>
+      <!-- use custom svg -->
+      <button class="button bg-gray-500" data-type="customSvg">
+        customSvg
+      </button>
+      <!-- manual close -->
+      <button class="button bg-gray-500 handleClose" data-type="handleClose">
+        handleClose
+      </button>
+    </div>
+  </body>
 </html>
