@@ -1,4 +1,4 @@
-#autolog {
+.antd-message-mini {
   --icon-size: 1rem;
   --ant-font-size: 14px;
   --ant-box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
@@ -24,7 +24,7 @@
   transition: 0.2s;
 }
 
-#autolog > span {
+.antd-message-mini > span {
   pointer-events: auto;
   width: max-content;
   animation: fadein 0.4s;
@@ -47,11 +47,11 @@
   font-family: var(--ant-font-family);
 }
 
-#autolog > span > span {
+.antd-message-mini > span > span {
   max-width: 50vw;
 }
 
-#autolog span.hide {
+.antd-message-mini span.hide {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
@@ -60,43 +60,43 @@
   margin: 0;
 }
 
-#autolog > .autolog-info > *:first-child {
+.antd-message-mini > .antd-message-mini-info > *:first-child {
   color: var(--ant-color-info);
 }
-#autolog > .autolog-info.colorful {
+.antd-message-mini > .antd-message-mini-info.colorful {
   background-color: #e6f7ff;
 }
 
-#autolog > .autolog-success.colorful {
+.antd-message-mini > .antd-message-mini-success.colorful {
   background-color: #e9f7e7;
 }
-#autolog > .autolog-success > *:first-child {
+.antd-message-mini > .antd-message-mini-success > *:first-child {
   color: var(--ant-color-success);
 }
 
-#autolog > .autolog-warn.colorful, #autolog > .autolog-warning.colorful {
+.antd-message-mini > .antd-message-mini-warn.colorful, .antd-message-mini > .antd-message-mini-warning.colorful {
   background-color: #fffaec;
 }
-#autolog > .autolog-warn > *:first-child, #autolog > .autolog-warning > *:first-child {
+.antd-message-mini > .antd-message-mini-warn > *:first-child, .antd-message-mini > .antd-message-mini-warning > *:first-child {
   color: var(--ant-color-warning);
 }
 
-#autolog > .autolog-error.colorful {
+.antd-message-mini > .antd-message-mini-error.colorful {
   background-color: #fde7e7;
 }
-#autolog > .autolog-error > *:first-child {
+.antd-message-mini > .antd-message-mini-error > *:first-child {
   color: var(--ant-color-error);
 }
 
-#autolog > .autolog-loading.colorful {
+.antd-message-mini > .antd-message-mini-loading.colorful {
   background-color: #e6f7ff;
 }
-#autolog > .autolog-loading > *:first-child {
+.antd-message-mini > .antd-message-mini-loading > *:first-child {
   color: var(--ant-color-info);
 }
 
 
-#autolog > .autolog- {
+.antd-message-mini > .antd-message-mini- {
   background-color: #fafafa;
   color: #333;
 }
@@ -120,24 +120,24 @@
   }
 }
 
-#autolog svg {
+.antd-message-mini svg {
   font-size: var(--icon-size);
   width: 1em;
   height: 1em;
 }
 
-#autolog [data-icon="close"] {
+.antd-message-mini [data-icon="close"] {
   cursor: pointer;
 }
-:is(#autolog > .autolog-info.colorful, #autolog > .autolog-loading.colorful) [data-icon="close"] {
+:is(.antd-message-mini > .antd-message-mini-info.colorful, .antd-message-mini > .antd-message-mini-loading.colorful) [data-icon="close"] {
   color: var(--ant-color-info);
 }
-#autolog > .autolog-success.colorful [data-icon="close"] {
+.antd-message-mini > .antd-message-mini-success.colorful [data-icon="close"] {
   color: var(--ant-color-success);
 }
-:is(#autolog > .autolog-warn.colorful, #autolog > .autolog-warning.colorful) [data-icon="close"] {
+:is(.antd-message-mini > .antd-message-mini-warn.colorful, .antd-message-mini > .antd-message-mini-warning.colorful) [data-icon="close"] {
   color: var(--ant-color-warning);
 }
-#autolog > .autolog-error.colorful [data-icon="close"] {
+.antd-message-mini > .antd-message-mini-error.colorful [data-icon="close"] {
   color: var(--ant-color-error);
 }
