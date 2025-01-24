@@ -68,7 +68,7 @@ document
     }
 
     if (type === 'handleClose') {
-      message.open({
+      return message.open({
         type: 'info',
         content: 'This is a ' + `"${text}"` + ' message',
         closable: true,
@@ -76,7 +76,6 @@ document
         icon,
         onClose: () => message.success('closed manually', 1000),
       });
-      return;
     }
 
     if (type === 'customCssAndStyle') {
@@ -93,8 +92,6 @@ document
         escapeHTML: false,
         duration: -1,
       });
-
-      return;
     }
 
     message[type]({

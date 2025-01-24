@@ -57,6 +57,7 @@ const globalConfig: IGlobalConfig = {
 // const FADE_IN_TIME = 400;
 // const FADE_OUT_TIME = 500;
 
+// TODO use puppeteer to test all cases
 function open({
   type,
   content,
