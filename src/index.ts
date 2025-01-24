@@ -26,6 +26,12 @@ interface MessageConfig extends Partial<IGlobalConfig> {
   onClose?: () => void;
   type: ILevel;
   icon?: SvgString;
+
+  /** Toggle the default behavior of escaping HTML markup	 */
+  escapeHTML?: boolean;
+
+  className?: string;
+  style?: Partial<CSSStyleDeclaration>;
 }
 
 type SvgString = string;
@@ -122,6 +128,9 @@ function parseConfig(
   return Object.assign(config, { type });
 }
 
+// const FADE_IN_TIME = 400;
+// const FADE_OUT_TIME = 500;
+
 function open({
   type,
   content,
@@ -130,20 +139,20 @@ function open({
   icon = svgIcons[type],
   colorful = globalConfig.colorful,
   closable = globalConfig.closable,
+  escapeHTML = false,
 }: MessageConfig) {
-  if (globalConfig.debug) {
-    console.log('[message DEBUG]', { type, content, duration, onClose, icon });
-  }
+  const { debug } = globalConfig;
 
-  const FADE_IN_TIME = 400;
-  const FADE_OUT_TIME = 500;
+  debug &&
+    console.log('[message DEBUG]', { type, content, duration, onClose, icon });
+
   const autoClose = duration > 0;
-  console.log('duration:', duration, globalConfig);
+  debug && console.log('duration:', duration, globalConfig);
   // if duration is less than 0, it means never close
   duration = duration <= 0 ? 30 * 24 * 3600e3 : duration;
-  const time = duration < 0 ? 0 : duration + (FADE_IN_TIME + FADE_OUT_TIME);
+  const time = duration < 0 ? 0 : duration + 0;
   const mainEl = getMainElement();
-  let el = document.createElement('span');
+  let el: null | HTMLSpanElement = document.createElement('span');
   el.className = `autolog-${type} ${colorful ? 'colorful' : ''}`;
   // icon-success icon-warning
   // if (type.startsWith('icon-')) {
@@ -154,10 +163,11 @@ function open({
   // } else {
   // }
 
-  el.innerHTML = icon + escapeHtml(content);
+  el.innerHTML = icon + (escapeHTML ? escapeHtml(content) : content);
 
   const showCloseIcon = !autoClose || closable;
-  console.log('showCloseIcon:', { showCloseIcon, autoClose, closable });
+  debug &&
+    console.log('showCloseIcon:', { showCloseIcon, autoClose, closable });
 
   if (showCloseIcon) {
     el.innerHTML += getCloseIcon(type, colorful);
@@ -165,32 +175,45 @@ function open({
 
   mainEl.appendChild(el);
 
-  if (!showCloseIcon) {
+  if (autoClose) {
     setTimeout(() => {
-      el!.classList.add('hide');
+      // el may be null if message is closed manually
+      el && el.classList.add('hide');
     }, time - 500);
+
     setTimeout(() => {
-      mainEl.removeChild(el!);
-      // @ts-expect-error el can be null
+      // el may be null if message is closed manually
+      if (!el) return;
+
+      mainEl.removeChild(el);
       el = null;
     }, time);
 
-    return;
+    // ! should not return here because message can be closed manually
+    // return;
   }
 
   // 当time和 autoClose 都存在时，点击关闭
-  el.addEventListener('click', (event) => {
-    // @ts-expect-error event.target.dataset
-    console.log('event.target:', event.target.dataset);
-    if ((event.target as HTMLElement).dataset.icon !== 'close') {
+  const closeIcon = el && el.querySelector('[data-icon="close"]')!;
+
+  if (!closeIcon) {
+    // maybe closed by setTimeout
+    return;
+  }
+
+  closeIcon.addEventListener('click', () => {
+    // el may be null when autoClose is true
+    if (!el) {
       return;
     }
 
     el.classList.add('hide');
+
     setTimeout(() => {
       mainEl.removeChild(el!);
-      // @ts-expect-error el can be null
+
       el = null;
+
       onClose && onClose();
     }, 500);
   });

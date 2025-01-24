@@ -4,15 +4,16 @@
 
 > `message.info/success/warning/error/loading`
 >
-> Lightweight message toast. A pixel-level imitation version of Ant Design (antd v5) message static methods.
+> Lightweight message toast. An imitation 🎎 version of Ant Design (antd v5) message static methods.
 
 [demo](https://unpkg.com/antd-message-mini@1.0.0/dist/index.html)
 
 ## Features
 
-- 🎈 **Lightweight**: no dependencies. 1.7kb (minified) ![bundlephobia](https://badgen.net/bundlephobia/min/antd-message-mini).
-- 🐪 **Framework-agnostic, run in everywhere**: no rely on heavy frameworks such as antd, react, vue, etc.
-- 🎎 **Pixel-level imitation** of antd `message[level](...)`.
+- 🎈 **Lightweight**: No dependencies. 1.7kb (minified) ![bundlephobia](https://badgen.net/bundlephobia/min/antd-message-mini).
+- 🐪 **Framework-agnostic, run in everywhere**: No rely on heavy frameworks such as antd, react, vue, etc.
+- <img alt="ts-icon" src="https://www.typescriptlang.org/favicon-32x32.png" width="16px" /> **TS type friendly**: Every parameter has precise typing, for example the `style`.
+- 🚛 **CDN support**: You can try it in your HTML file directly.
 
 ## Installation
 

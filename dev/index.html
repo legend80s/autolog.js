@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- iconfont -->
     <link
@@ -9,9 +10,20 @@
       href="//at.alicdn.com/t/c/font_4507845_4ys40xqhy9u.css"
     />
     <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding-inline: 1rem;
+      }
+      .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .container {
-        margin-top: 50vh;
-        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
 
       button {
@@ -131,7 +143,7 @@
     </style>
   </head>
 
-  <body>
+  <body class="flex-center">
     <div class="container">
       <!-- use builtin icon -->
       <button class="button is-info bg-gray-800" data-level="info">info</button>
@@ -170,7 +182,7 @@
       </button>
 
       <button class="button bg-gray-500" data-level="info" data-icon="">
-        plain message
+        plain
       </button>
     </div>
   </body>

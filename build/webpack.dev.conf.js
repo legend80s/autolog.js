@@ -8,9 +8,9 @@ module.exports = merge(webpackCommonConfig, {
   mode: 'development',
   entry: resolveRoot('./dev/index.ts'),
   output: {
-    filename: 'autolog.min.js',
+    filename: 'antd-message-mini-showcase.js',
     path: resolveRoot(''),
-    library: 'autolog',
+    // library: 'autolog',
     libraryTarget: 'umd',
     environment: {
       const: false,
@@ -35,7 +35,7 @@ module.exports = merge(webpackCommonConfig, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'autolog.js dev',
+      title: 'AntD Message Mini Showcase',
       favicon: resolveRoot('./autolog.svg'),
       template: resolveRoot('./dev/index.html'),
     }),
