@@ -66,6 +66,8 @@ function open({
   colorful = globalConfig.colorful,
   closable = globalConfig.closable,
   escapeHTML = false,
+  className = '',
+  style,
 }: MessageConfig) {
   const { debug } = globalConfig;
 
@@ -77,9 +79,17 @@ function open({
   // if duration is less than 0, it means never close
   duration = duration <= 0 ? 30 * 24 * 3600e3 : duration;
   const time = duration < 0 ? 0 : duration + 0;
-  const mainEl = getMainElement();
+
   let el: null | HTMLSpanElement = document.createElement('span');
-  el.className = `${BRAND}-${type} ${colorful ? 'colorful' : ''}`;
+
+  // add custom className - SHOULD NOT ADD TO `mainElement` because it is shared by multiple instances
+  el.className = [`${BRAND}-${type}`, colorful && 'colorful', className]
+    .filter(Boolean)
+    .join(' ');
+
+  // add custom style  - SHOULD NOT ADD TO `mainElement` because it is shared by multiple instances
+  style && Object.assign(el.style, style);
+
   // icon-success icon-warning
   // if (type.startsWith('icon-')) {
   //   // dev.ts 使用案例
@@ -99,6 +109,7 @@ function open({
     el.innerHTML += getCloseIcon(type, colorful);
   }
 
+  const mainEl = getMainElement();
   mainEl.appendChild(el);
 
   if (autoClose) {
@@ -286,16 +297,20 @@ function getCloseIcon(type: ILevel, colorful: boolean): string {
   return coloredSvgEl;
 }
 
-function getMainElement() {
-  let mainEl = document.querySelector(`.${BRAND}`);
+function getMainElement(): HTMLDivElement {
+  let mainEl: null | HTMLDivElement = document.querySelector(`.${BRAND}`);
+
   if (!mainEl) {
     mainEl = document.createElement('div');
     mainEl.classList.add(BRAND);
     document.body.appendChild(mainEl);
+
     const style = document.createElement('style');
+
     style.innerHTML = cssStr;
     document.head.insertBefore(style, document.head.firstChild);
   }
+
   return mainEl;
 }
 

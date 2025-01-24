@@ -8,21 +8,21 @@ console.log(label, 'window.message:', window.message);
 console.log(label, "Try `message.success('Hello World 🎉🎉🎉')`");
 
 message.success(
-  'This is a info message. You can try it by typing `message.info` in the console (F12)!'
+  'This is a info message. You can try it by typing `message.info` in the console (F12)'
 );
 
-message.open({
-  content: 'This is a colorful info message',
-  escapeHTML: false,
-  duration: 3000,
-  type: 'info',
-  colorful: true,
-  className: 'custom-class',
-  style: {
-    marginTop: '20vh',
-  },
-  closable: true,
-});
+// message.open({
+//   content: 'This is a colorful info message',
+//   escapeHTML: false,
+//   duration: 3000,
+//   type: 'info',
+//   colorful: true,
+//   className: 'custom-class',
+//   style: {
+//     marginTop: '20vh',
+//   },
+//   closable: true,
+// });
 
 // message.config({ debug: false, duration: 5e3, colorful: false });
 
@@ -46,7 +46,8 @@ document
       | 'error'
       | 'loading'
       | 'customSvg'
-      | 'handleClose';
+      | 'handleClose'
+      | 'customCssAndStyle';
 
     const text = btn.innerText;
     const { level, iconfont, icon } = btn.dataset;
@@ -75,10 +76,29 @@ document
         icon,
         onClose: () => message.success('closed manually', 1000),
       });
-    } else {
-      message[type]({
-        content: 'This is a ' + `"${text}"` + ' message',
-        icon,
-      });
+      return;
     }
+
+    if (type === 'customCssAndStyle') {
+      return message.open({
+        type: 'info',
+        content: 'This is a ' + `"${text}"` + ' message',
+        closable: true,
+        icon,
+        className: 'custom-class',
+        style: {
+          marginTop: '20vh',
+        },
+
+        escapeHTML: false,
+        duration: -1,
+      });
+
+      return;
+    }
+
+    message[type]({
+      content: 'This is a ' + `"${text}"` + ' message',
+      icon,
+    });
   });
