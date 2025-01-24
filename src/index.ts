@@ -54,79 +54,6 @@ const globalConfig: IGlobalConfig = {
   closable: false,
 };
 
-function info(config: Omit<MessageConfig, 'type'>): void;
-function info(content: string, duration?: number, onClose?: () => void): void;
-function info(
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) {
-  open(parseConfig('info', config, duration, onClose));
-}
-
-type IMethod = typeof info;
-
-// function success(config: Omit<MessageConfig, 'type'>): void;
-// function success(
-//   content: string,
-//   duration?: number,
-//   onClose?: () => void
-// ): void;
-const success: IMethod = (
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) => {
-  open(parseConfig('success', config, duration, onClose));
-};
-
-// function warn(config: Omit<MessageConfig, 'type'>): void;
-// function warn(content: string, duration?: number, onClose?: () => void): void;
-const warn: IMethod = (
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) => {
-  open(parseConfig('warn', config, duration, onClose));
-};
-
-// function error(config: Omit<MessageConfig, 'type'>): void;
-// function error(content: string, duration?: number, onClose?: () => void): void;
-const error: IMethod = (
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) => {
-  open(parseConfig('error', config, duration, onClose));
-};
-
-// function loading(config: Omit<MessageConfig, 'type'>): void;
-// function loading(
-//   content: string,
-//   duration?: number,
-//   onClose?: () => void
-// ): void;
-const loading: IMethod = (
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) => {
-  open(parseConfig('loading', config, duration, onClose));
-};
-
-function parseConfig(
-  type: ILevel,
-  config: Omit<MessageConfig, 'type'> | string,
-  duration?: number,
-  onClose?: () => void
-) {
-  if (typeof config === 'string') {
-    return { content: config, duration, onClose, type };
-  }
-
-  return Object.assign(config, { type });
-}
-
 // const FADE_IN_TIME = 400;
 // const FADE_OUT_TIME = 500;
 
@@ -216,6 +143,79 @@ function open({
       onClose && onClose();
     }, 500);
   });
+}
+
+function info(config: Omit<MessageConfig, 'type'>): void;
+function info(content: string, duration?: number, onClose?: () => void): void;
+function info(
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) {
+  open(parseConfig('info', config, duration, onClose));
+}
+
+type IMethod = typeof info;
+
+// function success(config: Omit<MessageConfig, 'type'>): void;
+// function success(
+//   content: string,
+//   duration?: number,
+//   onClose?: () => void
+// ): void;
+const success: IMethod = (
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) => {
+  open(parseConfig('success', config, duration, onClose));
+};
+
+// function warn(config: Omit<MessageConfig, 'type'>): void;
+// function warn(content: string, duration?: number, onClose?: () => void): void;
+const warn: IMethod = (
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) => {
+  open(parseConfig('warn', config, duration, onClose));
+};
+
+// function error(config: Omit<MessageConfig, 'type'>): void;
+// function error(content: string, duration?: number, onClose?: () => void): void;
+const error: IMethod = (
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) => {
+  open(parseConfig('error', config, duration, onClose));
+};
+
+// function loading(config: Omit<MessageConfig, 'type'>): void;
+// function loading(
+//   content: string,
+//   duration?: number,
+//   onClose?: () => void
+// ): void;
+const loading: IMethod = (
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) => {
+  open(parseConfig('loading', config, duration, onClose));
+};
+
+function parseConfig(
+  type: ILevel,
+  config: Omit<MessageConfig, 'type'> | string,
+  duration?: number,
+  onClose?: () => void
+) {
+  if (typeof config === 'string') {
+    return { content: config, duration, onClose, type };
+  }
+
+  return Object.assign(config, { type });
 }
 
 export const message = {
